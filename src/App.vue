@@ -5,25 +5,23 @@
   <main>
     <router-view />
   </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
-    </div>
-  </footer>
+  <GiftsCanvas />
 </template>
 
 <script>
-import { computed } from 'vue';
-import { AppState } from './AppState';
+import { computed } from "vue";
+import { AppState } from "./AppState";
+import GiftsCanvas from "./components/GiftsCanvas.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   setup() {
     return {
-      appState: computed(() => AppState)
-    }
-  }
-}
+      appState: computed(() => AppState),
+    };
+  },
+  components: { GiftsCanvas },
+};
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
