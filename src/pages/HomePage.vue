@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row flex-wrap">
       <GiftedCard v-for="g in gifts" :gift="g" />
     </div>
   </div>

@@ -5,6 +5,7 @@
         <form>
           <div class="form-floating mb-3">
             <input
+              v-model=""
               type="search"
               class="form-control"
               id="SearchInput"
@@ -25,10 +26,21 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import SearchGifs from "./SearchGifs.vue";
 export default {
   setup() {
-    return {};
+    const editable = ref{{}}
+    return {
+       async searchGifs(){
+        try {
+            await gifsService.searchGifs
+          } catch (error) {
+            console.error('[]',error)
+            Pop.error(error)
+          }
+      }
+    };
   },
   components: { SearchGifs },
 };

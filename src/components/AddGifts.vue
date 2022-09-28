@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="handleGiftSubmit">
       <div class="form-floating mb-3">
         <input
           v-model="editable.tag"
@@ -23,17 +23,30 @@
         />
         <label for="floatingPassword">url</label>
       </div>
+      <div>
+        <button type="submit">Send Gift</button>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import { giftsService } from "../services/GiftsService.js";
 export default {
   setup() {
     const editable = ref({});
     return {
       editable,
+      async handleGiftSubmit() {
+        try {
+          await giftsService.sendGifts(editable.value);
+          editable.value = {};
+        } catch (error) {
+          console.error("[handleGiftSubmit]", error);
+          Pop.error(error);
+        }
+      },
     };
   },
 };

@@ -3,6 +3,11 @@ import { Gift } from "../models/Gift.js";
 import { BcwServer } from "./AxiosService.js";
 
 class GiftsService {
+  async sendGifts(editable) {
+    const res = await BcwServer.post("/api/gifts", editable);
+    console.log(res.data);
+    AppState.gifts = [...AppState.gifts, new Gift(res.data)];
+  }
   async getGifts() {
     const res = await BcwServer.get("/api/gifts");
     AppState.gifts = res.data.map((g) => new Gift(g));
