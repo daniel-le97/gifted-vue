@@ -31,10 +31,18 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
+import { AppState } from "../AppState.js";
 import { giftsService } from "../services/GiftsService.js";
 export default {
   setup() {
+    //TODO you'll want the watchEffect here.. already imported it
+    watchEffect(() => {
+      if (AppState.selectedGif) {
+        editable.value.url = AppState.selectedGif;
+      }
+    });
+
     const editable = ref({});
     return {
       editable,

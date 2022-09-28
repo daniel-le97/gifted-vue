@@ -30,6 +30,7 @@ import SearchGifs from "./SearchGifs.vue";
 import SearchForm from "./SearchForm.vue";
 import AddGifts from "./AddGifts.vue";
 export default {
+  
   setup() {
     return {};
   },

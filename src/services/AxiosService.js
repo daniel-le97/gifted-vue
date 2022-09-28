@@ -15,5 +15,5 @@ export const GifServer = Axios.create({
   timeout: 3500,
 });
 
-// api_key: FtUhtVAkn006OVS2B7ZRzdsVweJgN7cj;
+// api_key: ;
 // search

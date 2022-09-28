@@ -5,8 +5,8 @@ import { BcwServer } from "./AxiosService.js";
 class GiftsService {
   async sendGifts(editable) {
     const res = await BcwServer.post("/api/gifts", editable);
-    console.log(res.data);
-    AppState.gifts = [...AppState.gifts, new Gift(res.data)];
+    // let newGift = new Gift(res.data);
+    AppState.gifts = [new Gift(res.data), ...AppState.gifts];
   }
   async getGifts() {
     const res = await BcwServer.get("/api/gifts");
