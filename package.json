@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@bcwdev/auth0provider-client": "^0.0.13",
+    "@formkit/vue": "^1.0.0-beta.10",
     "@mdi/font": "^7.0.96",
     "@popperjs/core": "^2.11.6",
     "axios": "^0.27.2",

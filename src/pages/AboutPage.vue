@@ -1,11 +1,13 @@
 <template>
   <div class="about">
-    <h1>This is the about page</h1>
+    <NewForm />
   </div>
 </template>
 
 <script>
+import NewForm from "../components/NewForm.vue";
 export default {
-  name: 'AboutPage'
-}
+  name: "AboutPage",
+  components: { NewForm },
+};
 </script>

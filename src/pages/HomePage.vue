@@ -11,21 +11,24 @@ import { computed } from "@vue/reactivity";
 import { giftsService } from "../services/GiftsService.js";
 import { AppState } from "../AppState.js";
 import Pop from "../utils/Pop.js";
+import NewForm from "../components/NewForm.vue";
 export default {
-  setup() {
-    async function getGifts() {
-      try {
-        await giftsService.getGifts();
-      } catch (error) {
-        console.error("[]", error);
-        Pop.error(error);
-      }
-    }
-    getGifts();
-    return {
-      gifts: computed(() => AppState.gifts),
-    };
-  },
+    setup() {
+        async function getGifts() {
+            try {
+                await giftsService.getGifts();
+            }
+            catch (error) {
+                console.error("[]", error);
+                Pop.error(error);
+            }
+        }
+        getGifts();
+        return {
+            gifts: computed(() => AppState.gifts),
+        };
+    },
+    components: { NewForm }
 };
 </script>
 

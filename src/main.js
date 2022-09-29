@@ -1,14 +1,14 @@
-import '@mdi/font/css/materialdesignicons.css'
-import 'bootstrap'
-import { createApp } from 'vue'
+import "@mdi/font/css/materialdesignicons.css";
+import "bootstrap";
+import { createApp } from "vue";
 // @ts-ignore
-import App from './App.vue'
-import { registerGlobalComponents } from './registerGlobalComponents'
-import { router } from './router'
+import App from "./App.vue";
+import { registerGlobalComponents } from "./registerGlobalComponents";
+import { router } from "./router";
 
-const root = createApp(App)
-registerGlobalComponents(root)
+import { plugin, defaultConfig } from "@formkit/vue";
 
-root
-  .use(router)
-  .mount('#app')
+const root = createApp(App);
+registerGlobalComponents(root);
+
+root.use(router).use(plugin, defaultConfig).mount("#app");
